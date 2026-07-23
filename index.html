@@ -4,16 +4,67 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yakaar de Rufisque — Académie & École de Football</title>
-<meta name="description" content="Académie et École de Football Yakaar de Rufisque — formation des jeunes joueurs de U5 à U19 à Rufisque, Dakar, Sénégal.">
+<meta name="description" content="Académie et École de Football Yakaar de Rufisque : une formation exigeante et bienveillante pour les jeunes de U5 à U19, à Rufisque, Sénégal.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://yakaarderufisque.com/">
+<meta property="og:locale" content="fr_SN">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Yakaar de Rufisque">
+<meta property="og:title" content="Yakaar de Rufisque — Académie & École de Football">
+<meta property="og:description" content="Former les espoirs de Rufisque, de U5 à U19, dans un cadre exigeant, structurant et bienveillant.">
+<meta property="og:url" content="https://yakaarderufisque.com/">
+<meta property="og:image" content="https://yakaarderufisque.com/assets/images/matchs.jpg">
+<meta property="og:image:alt" content="Joueurs de Yakaar de Rufisque">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Yakaar de Rufisque — Académie & École de Football">
+<meta name="twitter:description" content="Formation de football pour les jeunes de U5 à U19 à Rufisque, Sénégal.">
+<meta name="twitter:image" content="https://yakaarderufisque.com/assets/images/matchs.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/images/logo.png" type="image/png">
 <link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://yakaarderufisque.com/#organization",
+      "name": "Académie et École de Football Yakaar de Rufisque",
+      "url": "https://yakaarderufisque.com/",
+      "logo": "https://yakaarderufisque.com/assets/images/logo.png",
+      "email": "contact@yakaar-rufisque.sn",
+      "telephone": "+221710889999"
+    },
+    {
+      "@type": ["SportsClub", "LocalBusiness"],
+      "@id": "https://yakaarderufisque.com/#club",
+      "name": "Yakaar de Rufisque",
+      "url": "https://yakaarderufisque.com/",
+      "parentOrganization": { "@id": "https://yakaarderufisque.com/#organization" },
+      "sport": "Football",
+      "email": "contact@yakaar-rufisque.sn",
+      "telephone": "+221710889999",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Rufisque",
+        "addressRegion": "Dakar",
+        "addressCountry": "SN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 14.738130,
+        "longitude": -17.247127
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
-<a class="skip-link" href="#contact">Aller au contenu principal</a>
+<a class="skip-link" href="#main-content">Aller au contenu principal</a>
 
 <header class="site-header" id="top">
   <div class="wrap header-inner">
@@ -27,7 +78,7 @@
       </span>
       <span class="brand-text">Yakaar <em>de Rufisque</em></span>
     </a>
-    <nav class="main-nav" id="main-nav">
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
       <a href="#apropos">À propos</a>
       <a href="#services">Services</a>
       <a href="#programmes">Programmes</a>
@@ -45,7 +96,7 @@
   </div>
 </header>
 
-<main>
+<main id="main-content" tabindex="-1">
 
   <section class="hero hero-photo" aria-label="Présentation">
     <div class="hero-scrim" aria-hidden="true"></div>
@@ -69,11 +120,12 @@
         <a class="btn btn-primary" href="#contact">Nous rejoindre</a>
         <a class="btn btn-ghost" href="#programmes">Voir les programmes</a>
       </div>
-      <dl class="hero-stats">
-        <div><dt>+200</dt><dd>joueurs Inscrits</dd></div>
-        <div><dt>15</dt><dd>catégories, U5 à U19</dd></div>
-        <div><dt>2</dt><dd>pôles techniques</dd></div>
+      <dl class="hero-stats" aria-label="Les chiffres clés de l'académie">
+        <div><dt data-count="200" data-prefix="+">+200</dt><dd>joueurs inscrits</dd></div>
+        <div><dt data-count="15">15</dt><dd>catégories, U5 à U19</dd></div>
+        <div><dt data-count="2">2</dt><dd>pôles techniques</dd></div>
       </dl>
+      <a class="scroll-cue" href="#apropos" aria-label="Découvrir l'académie"><span aria-hidden="true"></span> Découvrir Yakaar</a>
     </div>
   </section>
 
@@ -92,6 +144,9 @@
           <li><strong>Stade moderne</strong> — entraînements et matchs se déroulent dans un stade nouvellement construit, aux normes actuelles</li>
           <li><strong>Accompagnement des familles</strong> — parents et tuteurs informés à chaque étape</li>
         </ul>
+        <div class="about-milestones" aria-label="Repères de la formation Yakaar">
+          <div><strong>U5</strong><span>Premiers gestes</span></div><div><strong>U14</strong><span>Perfectionnement</span></div><div><strong>U19</strong><span>Ambition & compétition</span></div>
+        </div>
       </div>
       <div class="col-visual" role="img" aria-label="Illustration d'un terrain de football stylisé">
         <svg viewBox="0 0 320 400" class="pitch-illustration">
@@ -191,13 +246,14 @@
 
   <section class="section afam-section" id="afam" aria-labelledby="afam-title">
     <div class="wrap two-col afam-grid">
-      <div class="col-visual afam-visual" aria-hidden="true">
+      <div class="col-visual afam-visual" aria-label="Aperçu du tableau de bord AFAM">
         <div class="afam-mock">
-          <div class="afam-mock-row"><span></span><span class="w-70"></span></div>
-          <div class="afam-mock-row"><span></span><span class="w-45"></span></div>
-          <div class="afam-mock-row"><span></span><span class="w-85"></span></div>
-          <div class="afam-mock-row"><span></span><span class="w-30"></span></div>
-          <div class="afam-mock-stat"><strong>+300</strong><em>joueurs suivis en temps réel</em></div>
+          <div class="afam-mock-head"><span class="afam-dot"></span><strong>AFAM</strong><small>Tableau de bord</small></div>
+          <div class="afam-metrics"><div><strong>165</strong><span>Joueurs actifs</span></div><div><strong>94%</strong><span>Présences</span></div></div>
+          <div class="afam-chart" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="afam-mock-row"><span class="afam-icon">✓</span><span class="w-70">Présences du jour</span><b>96%</b></div>
+          <div class="afam-mock-row"><span class="afam-icon">ƒ</span><span class="w-85">Cotisations suivies</span><b>À jour</b></div>
+          <div class="afam-mock-row"><span class="afam-icon">+</span><span class="w-45">Dossiers médicaux</span><b>165</b></div>
         </div>
       </div>
       <div class="col-text">
@@ -222,22 +278,57 @@
       <p class="section-lede">La saison se déroule sur 10 mois, de juillet à avril. La cotisation se règle en une fois ou en plusieurs mensualités.</p>
 
       <div class="price-grid">
-        <article class="price-card">
+        <article class="price-card price-card--featured">
+          <span class="price-badge">Le plus choisi</span>
           <p class="pole-tag pole-tag--u1">Nouvelle inscription</p>
-          <p class="price-amount">180 000 <span>FCFA / saison</span></p>
+          <p class="price-amount">30 000 <span>FCFA</span></p>
           <ul class="price-detail">
-            <li>30 000 FCFA de frais d'inscription (une fois)</li>
             <li>15 000 FCFA de mensualité × 10 mois</li>
           </ul>
         </article>
         <article class="price-card">
           <p class="pole-tag pole-tag--u2">Réaffiliation</p>
-          <p class="price-amount">165 000 <span>FCFA / saison</span></p>
+          <p class="price-amount">15 000 <span>FCFA</span></p>
           <ul class="price-detail">
-            <li>15 000 FCFA de frais de réaffiliation (une fois)</li>
             <li>15 000 FCFA de mensualité × 10 mois</li>
           </ul>
         </article>
+      </div>
+
+      <div class="service-pricing" aria-labelledby="services-pricing-title">
+        <div class="service-pricing-heading">
+          <p class="eyebrow">Services complémentaires</p>
+          <h3 id="services-pricing-title">Un accompagnement au-delà du terrain</h3>
+          <p>Des solutions pensées pour faciliter le quotidien des joueurs et de leurs familles.</p>
+        </div>
+        <div class="service-price-grid">
+          <article class="service-price-card service-price-card--transport">
+            <div class="service-price-image">
+              <img src="photos/AT.png" alt="Bus de transport de l'École de Football Yakaar de Rufisque" loading="lazy">
+            </div>
+            <div class="service-price-content">
+              <span class="pole-tag pole-tag--u1">Transport</span>
+              <h3>Le bus Yakaar</h3>
+              <p>Un transport dédié pour les entraînements, les matchs et les activités sportives, avec des points de ramassage à Rufisque et ses environs.</p>
+              <dl class="service-price-list">
+                <div><dt>15 000 FCFA</dt><dd>frais d'inscription</dd></div>
+                <div><dt>10 000 FCFA</dt><dd>par mois</dd></div>
+              </dl>
+            </div>
+          </article>
+          <article class="service-price-card service-price-card--housing">
+            <div class="housing-placeholder" aria-hidden="true"><span>Photo des logements<br>à venir</span></div>
+            <div class="service-price-content">
+              <span class="pole-tag pole-tag--u2">Logement</span>
+              <h3>Hébergement encadré</h3>
+              <p>Une solution d'accueil pensée pour les joueurs qui viennent d'autres régions, dans un environnement structuré et sécurisé.</p>
+              <dl class="service-price-list">
+                <div><dt>200 000 FCFA</dt><dd>frais d'inscription</dd></div>
+                <div><dt>150 000 FCFA</dt><dd>par mois</dd></div>
+              </dl>
+            </div>
+          </article>
+        </div>
       </div>
 
       <div class="steps-block">
@@ -310,24 +401,54 @@
       <p class="eyebrow">Galerie</p>
       <h2 id="galerie-title">La vie de l'académie</h2>
       <p class="section-lede">Nos joueurs s'entraînent dans un stade moderne, nouvellement construit. Un aperçu de la vie de l'académie — d'autres photos viendront enrichir cette galerie au fil de la saison.</p>
-      <div class="gallery-grid">
-        <div class="gallery-tile">
-          <img src="assets/images/entrainements.jpg" alt="Jeunes joueurs de l'école Yakaar de Rufisque avant une séance" loading="lazy" onerror="this.style.display='none';">
-          <div class="gallery-placeholder"><span>Entraînements</span></div>
-        </div>
-        <div class="gallery-tile">
-          <img src="assets/images/matchs.jpg" alt="Célébration de l'équipe Yakaar de Rufisque après un but" loading="lazy" onerror="this.style.display='none';">
-          <div class="gallery-placeholder"><span>Matchs</span></div>
-        </div>
-        <div class="gallery-tile">
-          <img src="assets/images/evenements.jpg" alt="Bus aux couleurs de l'académie Yakaar de Rufisque" loading="lazy" onerror="this.style.display='none';">
-          <div class="gallery-placeholder"><span>Événements</span></div>
-        </div>
-        <div class="gallery-tile">
-          <img src="assets/images/infrastructures.jpg" alt="Le stade moderne de Yakaar de Rufisque, terrain synthétique et tribunes" loading="lazy" onerror="this.style.display='none';">
-          <div class="gallery-placeholder"><span>Notre stade</span></div>
-        </div>
+      <div class="gallery-filters" role="group" aria-label="Filtrer la galerie">
+        <button class="gallery-filter is-active" type="button" data-filter="all" aria-pressed="true">Tout voir</button>
+        <button class="gallery-filter" type="button" data-filter="formation" aria-pressed="false">Formation</button>
+        <button class="gallery-filter" type="button" data-filter="match" aria-pressed="false">Matchs</button>
+        <button class="gallery-filter" type="button" data-filter="equipe" aria-pressed="false">Équipe</button>
+        <button class="gallery-filter" type="button" data-filter="identite" aria-pressed="false">Identité</button>
       </div>
+      <div class="gallery-grid">
+        <button class="gallery-tile gallery-tile--wide" type="button" data-category="formation" data-image="assets/images/hero-bg.jpg" data-alt="Terrain de football et équipement de Yakaar de Rufisque">
+          <img src="assets/images/hero-bg.jpg" alt="Terrain de football et équipement de Yakaar de Rufisque" loading="lazy"><span class="gallery-caption">Le terrain Yakaar</span>
+        </button>
+        <button class="gallery-tile gallery-tile--tall" type="button" data-category="equipe" data-image="assets/images/matchs.jpg" data-alt="Joueurs de Yakaar de Rufisque réunis après un match">
+          <img src="assets/images/matchs.jpg" alt="Match de jeunes joueurs de Yakaar de Rufisque" loading="lazy"><span class="gallery-caption">Jour de match</span>
+        </button>
+        <button class="gallery-tile" type="button" data-category="identite" data-image="assets/images/maillots.jpg" data-alt="Maillots de Yakaar de Rufisque">
+          <img src="assets/images/maillots.jpg" alt="Maillots de Yakaar de Rufisque" loading="lazy"><span class="gallery-caption">Nos couleurs</span>
+        </button>
+        <button class="gallery-tile" type="button" data-category="formation" data-image="assets/images/infrastructures.jpg" data-alt="Vue du stade de Yakaar de Rufisque">
+          <img src="assets/images/infrastructures.jpg" alt="Vue du stade de Yakaar de Rufisque" loading="lazy"><span class="gallery-caption">Infrastructure</span>
+        </button>
+        <button class="gallery-tile" type="button" data-category="match" data-image="photos/WhatsApp Image 2026-07-19 at 19.04.36.jpeg" data-alt="Jeunes joueurs Yakaar de Rufisque en action"><img src="photos/WhatsApp Image 2026-07-19 at 19.04.36.jpeg" alt="Jeunes joueurs Yakaar de Rufisque en action" loading="lazy"><span class="gallery-caption">En action</span></button>
+        <button class="gallery-tile gallery-tile--wide" type="button" data-category="match" data-image="photos/WhatsApp Image 2026-07-23 at 07.55.49.jpeg" data-alt="Match de jeunes joueurs Yakaar de Rufisque"><img src="photos/WhatsApp Image 2026-07-23 at 07.55.49.jpeg" alt="Match de jeunes joueurs Yakaar de Rufisque" loading="lazy"><span class="gallery-caption">Intensité du match</span></button>
+        <button class="gallery-tile" type="button" data-category="formation" data-image="photos/WhatsApp Image 2026-07-23 at 07.55.50.jpeg" data-alt="Séance de football de Yakaar de Rufisque"><img src="photos/WhatsApp Image 2026-07-23 at 07.55.50.jpeg" alt="Séance de football de Yakaar de Rufisque" loading="lazy"><span class="gallery-caption">Apprendre le jeu</span></button>
+        <button class="gallery-tile" type="button" data-category="match" data-image="photos/WhatsApp Image 2026-07-23 at 07.55.53.jpeg" data-alt="Jeunes de Yakaar de Rufisque en match"><img src="photos/WhatsApp Image 2026-07-23 at 07.55.53.jpeg" alt="Jeunes de Yakaar de Rufisque en match" loading="lazy"><span class="gallery-caption">Compétition</span></button>
+        <button class="gallery-tile" type="button" data-category="formation" data-image="photos/WhatsApp Image 2026-07-23 at 07.55.56.jpeg" data-alt="Formation des jeunes à Yakaar de Rufisque"><img src="photos/WhatsApp Image 2026-07-23 at 07.55.56.jpeg" alt="Formation des jeunes à Yakaar de Rufisque" loading="lazy"><span class="gallery-caption">Les fondamentaux</span></button>
+        <button class="gallery-tile gallery-tile--tall" type="button" data-category="equipe" data-image="photos/WhatsApp Image 2026-07-23 at 07.56.00.jpeg" data-alt="Cohésion des joueurs de Yakaar de Rufisque"><img src="photos/WhatsApp Image 2026-07-23 at 07.56.00.jpeg" alt="Cohésion des joueurs de Yakaar de Rufisque" loading="lazy"><span class="gallery-caption">Une équipe soudée</span></button>
+        <button class="gallery-tile" type="button" data-category="formation" data-image="photos/WhatsApp Image 2026-07-23 at 07.56.03.jpeg" data-alt="Joueurs Yakaar de Rufisque à l'entraînement"><img src="photos/WhatsApp Image 2026-07-23 at 07.56.03.jpeg" alt="Joueurs Yakaar de Rufisque à l'entraînement" loading="lazy"><span class="gallery-caption">Entraînement</span></button>
+        <button class="gallery-tile" type="button" data-category="match" data-image="photos/WhatsApp Image 2026-07-23 at 07.56.05.jpeg" data-alt="Match de football des jeunes Yakaar"><img src="photos/WhatsApp Image 2026-07-23 at 07.56.05.jpeg" alt="Match de football des jeunes Yakaar" loading="lazy"><span class="gallery-caption">Le goût de l'effort</span></button>
+        <button class="gallery-tile" type="button" data-category="equipe" data-image="photos/WhatsApp Image 2026-07-23 at 07.56.06.jpeg" data-alt="Groupe de joueurs Yakaar de Rufisque"><img src="photos/WhatsApp Image 2026-07-23 at 07.56.06.jpeg" alt="Groupe de joueurs Yakaar de Rufisque" loading="lazy"><span class="gallery-caption">Esprit Yakaar</span></button>
+        <button class="gallery-tile" type="button" data-category="formation" data-image="photos/WhatsApp Image 2026-07-23 at 07.56.08.jpeg" data-alt="Jeune joueur de Yakaar de Rufisque"><img src="photos/WhatsApp Image 2026-07-23 at 07.56.08.jpeg" alt="Jeune joueur de Yakaar de Rufisque" loading="lazy"><span class="gallery-caption">Faire grandir les talents</span></button>
+        <button class="gallery-tile" type="button" data-category="match" data-image="photos/WhatsApp Image 2026-07-23 at 07.56.10.jpeg" data-alt="Action de match Yakaar de Rufisque"><img src="photos/WhatsApp Image 2026-07-23 at 07.56.10.jpeg" alt="Action de match Yakaar de Rufisque" loading="lazy"><span class="gallery-caption">Vivre le match</span></button>
+        <button class="gallery-tile gallery-tile--tall" type="button" data-category="formation" data-image="photos/WhatsApp Image 2026-07-23 at 07.56.12.jpeg" data-alt="Formation football de Yakaar de Rufisque"><img src="photos/WhatsApp Image 2026-07-23 at 07.56.12.jpeg" alt="Formation football de Yakaar de Rufisque" loading="lazy"><span class="gallery-caption">Exigence au quotidien</span></button>
+        <button class="gallery-tile" type="button" data-category="equipe" data-image="photos/WhatsApp Image 2026-07-23 at 07.56.14.jpeg" data-alt="Joueurs de Yakaar de Rufisque"><img src="photos/WhatsApp Image 2026-07-23 at 07.56.14.jpeg" alt="Joueurs de Yakaar de Rufisque" loading="lazy"><span class="gallery-caption">La fierté du maillot</span></button>
+        <button class="gallery-tile" type="button" data-category="match" data-image="photos/WhatsApp Image 2026-07-23 at 07.56.18.jpeg" data-alt="Match de jeunes joueurs Yakaar"><img src="photos/WhatsApp Image 2026-07-23 at 07.56.18.jpeg" alt="Match de jeunes joueurs Yakaar" loading="lazy"><span class="gallery-caption">Engagement</span></button>
+        <button class="gallery-tile gallery-tile--wide" type="button" data-category="equipe" data-image="photos/WhatsApp Image 2026-07-23 at 07.56.21.jpeg" data-alt="Collectif Yakaar de Rufisque"><img src="photos/WhatsApp Image 2026-07-23 at 07.56.21.jpeg" alt="Collectif Yakaar de Rufisque" loading="lazy"><span class="gallery-caption">Le collectif avant tout</span></button>
+        <button class="gallery-tile" type="button" data-category="formation" data-image="photos/WhatsApp Image 2026-07-23 at 07.56.24.jpeg" data-alt="Séance Yakaar de Rufisque"><img src="photos/WhatsApp Image 2026-07-23 at 07.56.24.jpeg" alt="Séance Yakaar de Rufisque" loading="lazy"><span class="gallery-caption">Progresser ensemble</span></button>
+        <button class="gallery-tile gallery-tile--tall" type="button" data-category="match" data-image="photos/WhatsApp Image 2026-07-23 at 07.56.26.jpeg" data-alt="Jeune joueur Yakaar en pleine action"><img src="photos/WhatsApp Image 2026-07-23 at 07.56.26.jpeg" alt="Jeune joueur Yakaar en pleine action" loading="lazy"><span class="gallery-caption">La passion du jeu</span></button>
+        <button class="gallery-tile" type="button" data-category="equipe" data-image="photos/WhatsApp Image 2026-07-23 at 07.56.27.jpeg" data-alt="Joueurs Yakaar de Rufisque réunis"><img src="photos/WhatsApp Image 2026-07-23 at 07.56.27.jpeg" alt="Joueurs Yakaar de Rufisque réunis" loading="lazy"><span class="gallery-caption">Famille Yakaar</span></button>
+        <button class="gallery-tile" type="button" data-category="formation" data-image="photos/WhatsApp Image 2026-07-23 at 07.56.28.jpeg" data-alt="Joueurs en formation à Yakaar"><img src="photos/WhatsApp Image 2026-07-23 at 07.56.28.jpeg" alt="Joueurs en formation à Yakaar" loading="lazy"><span class="gallery-caption">Le travail paie</span></button>
+        <button class="gallery-tile" type="button" data-category="match" data-image="photos/WhatsApp Image 2026-07-23 at 07.56.30.jpeg" data-alt="Action de match de Yakaar de Rufisque"><img src="photos/WhatsApp Image 2026-07-23 at 07.56.30.jpeg" alt="Action de match de Yakaar de Rufisque" loading="lazy"><span class="gallery-caption">Détermination</span></button>
+        <button class="gallery-tile" type="button" data-category="formation" data-image="photos/WhatsApp Image 2026-07-23 at 07.56.31.jpeg" data-alt="Jeune talent de Yakaar de Rufisque"><img src="photos/WhatsApp Image 2026-07-23 at 07.56.31.jpeg" alt="Jeune talent de Yakaar de Rufisque" loading="lazy"><span class="gallery-caption">Rêver plus grand</span></button>
+        <button class="gallery-tile" type="button" data-category="equipe" data-image="photos/WhatsApp Image 2026-07-23 at 07.56.33.jpeg" data-alt="Vie de groupe à Yakaar de Rufisque"><img src="photos/WhatsApp Image 2026-07-23 at 07.56.33.jpeg" alt="Vie de groupe à Yakaar de Rufisque" loading="lazy"><span class="gallery-caption">Partage & respect</span></button>
+        <button class="gallery-tile" type="button" data-category="match" data-image="photos/WhatsApp Image 2026-07-23 at 07.56.35.jpeg" data-alt="Jeunes joueurs Yakaar en compétition"><img src="photos/WhatsApp Image 2026-07-23 at 07.56.35.jpeg" alt="Jeunes joueurs Yakaar en compétition" loading="lazy"><span class="gallery-caption">Jouer avec ambition</span></button>
+        <button class="gallery-tile gallery-tile--wide" type="button" data-category="formation" data-image="photos/WhatsApp Image 2026-07-23 at 07.56.38.jpeg" data-alt="Académie Yakaar de Rufisque sur le terrain"><img src="photos/WhatsApp Image 2026-07-23 at 07.56.38.jpeg" alt="Académie Yakaar de Rufisque sur le terrain" loading="lazy"><span class="gallery-caption">Une formation d'avenir</span></button>
+        <button class="gallery-tile" type="button" data-category="equipe" data-image="photos/WhatsApp Image 2026-07-23 at 07.56.41.jpeg" data-alt="Joueurs et encadrement Yakaar"><img src="photos/WhatsApp Image 2026-07-23 at 07.56.41.jpeg" alt="Joueurs et encadrement Yakaar" loading="lazy"><span class="gallery-caption">Guidés pour réussir</span></button>
+        <button class="gallery-tile" type="button" data-category="match" data-image="photos/WhatsApp Image 2026-07-23 at 07.56.43.jpeg" data-alt="Match de football Yakaar de Rufisque"><img src="photos/WhatsApp Image 2026-07-23 at 07.56.43.jpeg" alt="Match de football Yakaar de Rufisque" loading="lazy"><span class="gallery-caption">Donner le meilleur</span></button>
+      </div>
+      <dialog class="gallery-lightbox" id="galleryLightbox" aria-label="Agrandissement de l'image"><button class="lightbox-close" type="button" aria-label="Fermer l'image">×</button><img src="" alt=""></dialog>
     </div>
   </section>
 
@@ -347,7 +468,7 @@
           </li>
           <li>
             <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M4 5h16v14H4z"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="m4 6 8 7 8-7"/></svg>
-            <a href="mailto:contact@yakaar-rufisque.sn">contact@yakaar-rufisque.sn</a>
+            <span>contact@yakaar-rufisque.sn</span>
           </li>
           <li>
             <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M6.5 3h3l1.5 4.5-2.3 1.6a12 12 0 0 0 5.7 5.7l1.6-2.3L20 14v3a2 2 0 0 1-2 2C10.8 19 5 13.2 5 6a2 2 0 0 1 1.5-3z"/></svg>
@@ -366,18 +487,18 @@
       </div>
 
       <div class="col-form">
-        <form id="contactForm" novalidate>
+        <form id="contactForm" data-form-endpoint="" novalidate>
           <div class="form-row">
             <label for="fullname">Nom complet</label>
-            <input type="text" id="fullname" name="fullname" autocomplete="name" required>
-            <span class="field-error" data-for="fullname"></span>
+            <input type="text" id="fullname" name="fullname" autocomplete="name" aria-describedby="fullname-error" required>
+            <span class="field-error" id="fullname-error" data-for="fullname"></span>
           </div>
 
           <div class="form-row form-row--split">
             <div>
               <label for="email">Email</label>
-              <input type="email" id="email" name="email" autocomplete="email" required>
-              <span class="field-error" data-for="email"></span>
+              <input type="email" id="email" name="email" autocomplete="email" aria-describedby="email-error" required>
+              <span class="field-error" id="email-error" data-for="email"></span>
             </div>
             <div>
               <label for="phone">Téléphone</label>
@@ -388,7 +509,7 @@
 
           <div class="form-row">
             <label for="subject">Sujet</label>
-            <select id="subject" name="subject" required>
+            <select id="subject" name="subject" aria-describedby="subject-error" required>
               <option value="" disabled selected>Choisir un sujet</option>
               <option value="Inscription">Inscription d'un nouveau joueur</option>
               <option value="Reaffiliation">Réaffiliation d'un joueur</option>
@@ -396,13 +517,13 @@
               <option value="Partenariat">Partenariat / sponsoring</option>
               <option value="Autre">Autre</option>
             </select>
-            <span class="field-error" data-for="subject"></span>
+            <span class="field-error" id="subject-error" data-for="subject"></span>
           </div>
 
           <div class="form-row">
             <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-            <span class="field-error" data-for="message"></span>
+            <textarea id="message" name="message" rows="4" aria-describedby="message-error" required></textarea>
+            <span class="field-error" id="message-error" data-for="message"></span>
           </div>
 
           <button type="submit" class="btn btn-primary btn-submit">Envoyer le message</button>
@@ -413,6 +534,8 @@
   </section>
 
 </main>
+
+<a class="whatsapp-float" href="https://wa.me/221710889999" target="_blank" rel="noopener" aria-label="Écrire à Yakaar de Rufisque sur WhatsApp"><span aria-hidden="true">✦</span><span>WhatsApp</span></a>
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
@@ -426,7 +549,7 @@
       </span>
       <span class="brand-text">Yakaar <em>de Rufisque</em></span>
     </div>
-    <nav class="footer-nav">
+    <nav class="footer-nav" aria-label="Liens utiles">
       <a href="#apropos">À propos</a>
       <a href="#services">Services</a>
       <a href="#programmes">Programmes</a>
@@ -436,6 +559,7 @@
       <a href="#galerie">Galerie</a>
       <a href="#contact">Contact</a>
     </nav>
+    <div class="footer-socials" aria-label="Réseaux sociaux"><a href="https://wa.me/221710889999" target="_blank" rel="noopener">WhatsApp</a><a href="#contact">Partenaires</a></div>
     <p class="footer-copy">© <span id="year"></span> Académie et École de Football Yakaar de Rufisque. Tous droits réservés.</p>
   </div>
 </footer>

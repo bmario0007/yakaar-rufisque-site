@@ -1,31 +1,118 @@
 // ---------- Footer year ----------
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// ---------- Mobile nav toggle ----------
+// ---------- Navigation mobile et section active ----------
 const header = document.querySelector('.site-header');
 const navToggle = document.getElementById('navToggle');
+const nav = document.getElementById('main-nav');
+const navLinks = [...nav.querySelectorAll('a[href^="#"]')];
+
+function setMenuState(isOpen) {
+  header.classList.toggle('is-open', isOpen);
+  navToggle.setAttribute('aria-expanded', String(isOpen));
+  navToggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+}
 
 navToggle.addEventListener('click', () => {
-  const isOpen = header.classList.toggle('is-open');
-  navToggle.setAttribute('aria-expanded', String(isOpen));
+  setMenuState(!header.classList.contains('is-open'));
 });
 
-document.querySelectorAll('.main-nav a').forEach((link) => {
+navLinks.forEach((link) => {
   link.addEventListener('click', () => {
-    header.classList.remove('is-open');
-    navToggle.setAttribute('aria-expanded', 'false');
+    setMenuState(false);
   });
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && header.classList.contains('is-open')) {
+    setMenuState(false);
+    navToggle.focus();
+  }
+});
+
+const sections = navLinks
+  .map((link) => document.querySelector(link.getAttribute('href')))
+  .filter(Boolean);
+
+const observer = new IntersectionObserver((entries) => {
+  const visibleSection = entries
+    .filter((entry) => entry.isIntersecting)
+    .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+  if (!visibleSection) return;
+
+  navLinks.forEach((link) => {
+    const isCurrent = link.getAttribute('href') === `#${visibleSection.target.id}`;
+    if (isCurrent) {
+      link.setAttribute('aria-current', 'page');
+    } else {
+      link.removeAttribute('aria-current');
+    }
+  });
+}, { rootMargin: '-25% 0px -65% 0px', threshold: [0, 0.1, 0.5] });
+
+sections.forEach((section) => observer.observe(section));
+
+// ---------- Chiffres clés ----------
+const statObserver = new IntersectionObserver((entries, observerInstance) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    const stat = entry.target;
+    const target = Number(stat.dataset.count);
+    const prefix = stat.dataset.prefix || '';
+    const start = performance.now();
+
+    function update(now) {
+      const progress = Math.min((now - start) / 900, 1);
+      stat.textContent = `${prefix}${Math.round(target * progress)}`;
+      if (progress < 1) requestAnimationFrame(update);
+    }
+
+    requestAnimationFrame(update);
+    observerInstance.unobserve(stat);
+  });
+}, { threshold: 0.65 });
+
+document.querySelectorAll('[data-count]').forEach((stat) => statObserver.observe(stat));
+
+// ---------- Galerie ----------
+const galleryFilters = document.querySelectorAll('.gallery-filter');
+const galleryTiles = document.querySelectorAll('.gallery-tile');
+const lightbox = document.getElementById('galleryLightbox');
+const lightboxImage = lightbox.querySelector('img');
+
+galleryFilters.forEach((filter) => {
+  filter.addEventListener('click', () => {
+    const category = filter.dataset.filter;
+    galleryFilters.forEach((button) => {
+      const isActive = button === filter;
+      button.classList.toggle('is-active', isActive);
+      button.setAttribute('aria-pressed', String(isActive));
+    });
+    galleryTiles.forEach((tile) => tile.classList.toggle('is-hidden', category !== 'all' && tile.dataset.category !== category));
+  });
+});
+
+galleryTiles.forEach((tile) => tile.addEventListener('click', () => {
+  lightboxImage.src = tile.dataset.image;
+  lightboxImage.alt = tile.dataset.alt;
+  lightbox.showModal();
+}));
+
+lightbox.querySelector('.lightbox-close').addEventListener('click', () => lightbox.close());
+lightbox.addEventListener('click', (event) => {
+  if (event.target === lightbox) lightbox.close();
 });
 
 // ---------- Contact form ----------
 const form = document.getElementById('contactForm');
 const note = document.getElementById('formNote');
 
-const RECIPIENT_EMAIL = 'contact@yakaar-rufisque.sn';
-
 function setFieldError(name, message) {
   const errorEl = form.querySelector(`.field-error[data-for="${name}"]`);
+  const field = form.elements[name];
   if (errorEl) errorEl.textContent = message || '';
+  if (field) field.setAttribute('aria-invalid', String(Boolean(message)));
 }
 
 function validate(data) {
@@ -63,7 +150,7 @@ function validate(data) {
   return isValid;
 }
 
-form.addEventListener('submit', (event) => {
+form.addEventListener('submit', async (event) => {
   event.preventDefault();
 
   const data = {
@@ -80,23 +167,33 @@ form.addEventListener('submit', (event) => {
     return;
   }
 
-  // Pas de backend connecte pour l'instant : on ouvre le client mail
-  // de l'utilisateur avec le message pre-rempli. A remplacer par un
-  // vrai envoi (API / formulaire serveur) lors du deploiement.
-  const subjectLine = `[Site Yakaar] ${data.subject} \u2014 ${data.fullname}`;
-  const bodyLines = [
-    `Nom : ${data.fullname}`,
-    `Email : ${data.email}`,
-    `T\u00e9l\u00e9phone : ${data.phone || 'non renseign\u00e9'}`,
-    `Sujet : ${data.subject}`,
-    '',
-    data.message,
-  ];
-  const mailtoUrl = `mailto:${RECIPIENT_EMAIL}?subject=${encodeURIComponent(subjectLine)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+  const endpoint = form.dataset.formEndpoint;
+  const submitButton = form.querySelector('button[type="submit"]');
 
-  window.location.href = mailtoUrl;
+  if (!endpoint) {
+    note.textContent = 'Le formulaire est prêt à être connecté. Contactez-nous par WhatsApp pour une réponse immédiate.';
+    note.dataset.state = 'success';
+    return;
+  }
 
-  note.textContent = 'Votre messagerie va s\u2019ouvrir avec le message pr\u00e9-rempli. Il ne reste qu\u2019\u00e0 l\u2019envoyer.';
-  note.dataset.state = 'success';
-  form.reset();
+  submitButton.disabled = true;
+  submitButton.textContent = 'Envoi en cours…';
+
+  try {
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(data),
+    });
+    if (!response.ok) throw new Error('Envoi impossible');
+    note.textContent = 'Merci, votre message a bien été envoyé.';
+    note.dataset.state = 'success';
+    form.reset();
+  } catch {
+    note.textContent = 'L’envoi a échoué. Réessayez dans quelques instants ou contactez-nous par WhatsApp.';
+    note.dataset.state = 'error';
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = 'Envoyer le message';
+  }
 });
