@@ -81,28 +81,82 @@ const galleryTiles = document.querySelectorAll('.gallery-tile');
 const lightbox = document.getElementById('galleryLightbox');
 const lightboxImage = lightbox.querySelector('img');
 
+let currentCategory = 'all';
+let currentTilesArray = Array.from(galleryTiles);
+let currentImageIndex = 0;
+
 galleryFilters.forEach((filter) => {
   filter.addEventListener('click', () => {
-    const category = filter.dataset.filter;
+    currentCategory = filter.dataset.filter;
     galleryFilters.forEach((button) => {
       const isActive = button === filter;
       button.classList.toggle('is-active', isActive);
       button.setAttribute('aria-pressed', String(isActive));
     });
-    galleryTiles.forEach((tile) => tile.classList.toggle('is-hidden', category !== 'all' && tile.dataset.category !== category));
+    
+    currentTilesArray = [];
+    galleryTiles.forEach((tile) => {
+      const isVisible = currentCategory === 'all' || tile.dataset.category === currentCategory;
+      tile.classList.toggle('is-hidden', !isVisible);
+      if (isVisible) {
+        currentTilesArray.push(tile);
+      }
+    });
   });
 });
 
-galleryTiles.forEach((tile) => tile.addEventListener('click', () => {
+function updateLightboxImage() {
+  if (currentTilesArray.length === 0) return;
+  const tile = currentTilesArray[currentImageIndex];
   lightboxImage.src = tile.dataset.image;
   lightboxImage.alt = tile.dataset.alt;
+}
+
+galleryTiles.forEach((tile) => tile.addEventListener('click', () => {
+  currentImageIndex = currentTilesArray.indexOf(tile);
+  updateLightboxImage();
   lightbox.showModal();
 }));
+
+lightbox.querySelector('.lightbox-prev').addEventListener('click', (e) => {
+  e.stopPropagation();
+  currentImageIndex = (currentImageIndex - 1 + currentTilesArray.length) % currentTilesArray.length;
+  updateLightboxImage();
+});
+
+lightbox.querySelector('.lightbox-next').addEventListener('click', (e) => {
+  e.stopPropagation();
+  currentImageIndex = (currentImageIndex + 1) % currentTilesArray.length;
+  updateLightboxImage();
+});
+
+lightbox.addEventListener('keydown', (e) => {
+  if (!lightbox.open) return;
+  if (e.key === 'ArrowLeft') {
+    currentImageIndex = (currentImageIndex - 1 + currentTilesArray.length) % currentTilesArray.length;
+    updateLightboxImage();
+  } else if (e.key === 'ArrowRight') {
+    currentImageIndex = (currentImageIndex + 1) % currentTilesArray.length;
+    updateLightboxImage();
+  }
+});
 
 lightbox.querySelector('.lightbox-close').addEventListener('click', () => lightbox.close());
 lightbox.addEventListener('click', (event) => {
   if (event.target === lightbox) lightbox.close();
 });
+
+// ---------- Scroll Reveal ----------
+const revealObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
 // ---------- Contact form ----------
 const form = document.getElementById('contactForm');
